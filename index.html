@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Azani Internet Service Provider</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f0f2f5;
+      color: #1c1e21;
+    }
+
+    /* TOP BAR */
+    .topbar {
+      background: #087ea4;
+      color: white;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      padding: 0 5%;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: bold;
+      margin-right: 30px;
+    }
+
+    .search {
+      background: white;
+      color: #777;
+      border-radius: 20px;
+      padding: 10px 18px;
+      width: 280px;
+    }
+
+    .nav {
+      margin-left: auto;
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* MAIN */
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 25px auto;
+      display: grid;
+      grid-template-columns: 230px 1fr 280px;
+      gap: 20px;
+    }
+
+    /* LEFT */
+    .sidebar,
+    .rightbar,
+    .post,
+    .welcome {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .sidebar h3 {
+      color: #087ea4;
+      margin-bottom: 15px;
+    }
+
+    .menu {
+      list-style: none;
+    }
+
+    .menu li {
+      padding: 13px 5px;
+      border-bottom: 1px solid #eee;
+      cursor: pointer;
+    }
+
+    .menu li:hover {
+      background: #f0f8fb;
+    }
+
+    /* CENTER */
+    .welcome {
+      background: linear-gradient(135deg, #087ea4, #00a8cc);
+      color: white;
+      margin-bottom: 20px;
+    }
+
+    .welcome h1 {
+      margin-bottom: 10px;
+    }
+
+    .welcome button {
+      margin-top: 15px;
+      padding: 11px 20px;
+      border: none;
+      border-radius: 20px;
+      background: white;
+      color: #087ea4;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .post {
+      margin-bottom: 20px;
+    }
+
+    .post h3 {
+      color: #087ea4;
+      margin-bottom: 10px;
+    }
+
+    .post p {
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .actions button {
+      border: none;
+      background: #eef7fa;
+      padding: 9px 15px;
+      border-radius: 20px;
+      cursor: pointer;
+      color: #087ea4;
+      font-weight: bold;
+    }
+
+    .actions button:hover {
+      background: #d9eef4;
+    }
+
+    .comment-box {
+      display: flex;
+      gap: 8px;
+      margin-top: 15px;
+    }
+
+    .comment-box input {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 20px;
+    }
+
+    .comment-box button {
+      border: none;
+      border-radius: 20px;
+      background: #087ea4;
+      color: white;
+      padding: 10px 16px;
+      cursor: pointer;
+    }
+
+    .comments {
+      margin-top: 12px;
+    }
+
+    .comment {
+      background: #f0f2f5;
+      padding: 8px 12px;
+      border-radius: 15px;
+      margin-top: 7px;
+    }
+
+    /* RIGHT */
+    .rightbar h3 {
+      color: #087ea4;
+      margin-bottom: 15px;
+    }
+
+    .package {
+      background: #f4fbfd;
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .package strong {
+      color: #087ea4;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 30px;
+      color: #777;
+    }
+
+    @media (max-width: 900px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+
+      .search {
+        display: none;
+      }
+
+      .nav {
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="logo">AZANI</div>
+
+    <div class="search">
+      🔎 Search Azani
+    </div>
+
+    <div class="nav">
+      <a href="#home">Home</a>
+      <a href="#packages">Packages</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="container">
+
+    <!-- LEFT SIDEBAR -->
+    <aside class="sidebar">
+      <h3>Azani Menu</h3>
+
+      <ul class="menu">
+        <li onclick="showMessage('Registration')">👤 Registration</li>
+        <li onclick="showMessage('Payments')">💳 Payments</li>
+        <li onclick="showMessage('Bandwidth')">📡 Bandwidth</li>
+        <li onclick="showMessage('Installation')">🔧 Installation</li>
+        <li onclick="showMessage('Overdue')">⚠️ Overdue</li>
+        <li onclick="showMessage('Contact')">📞 Contact</li>
+      </ul>
+    </aside>
+
+    <!-- CENTER -->
+    <main>
+
+      <section class="welcome" id="home">
+        <h1>Welcome to Azani Internet Service Provider</h1>
+
+        <p>
+          Fast, reliable and affordable internet connectivity
+          for homes, businesses and institutions.
+        </p>
+
+        <button onclick="registerUser()">
+          Register Now
+        </button>
+      </section>
+
+      <!-- POST -->
+      <section class="post">
+        <h3>📢 Azani Announcement</h3>
+
+        <p>
+          Welcome to the official Azani Internet Service Provider
+          Information System. You can interact with other customers,
+          view services and leave comments below.
+        </p>
+
+        <div class="actions">
+          <button onclick="likePost(this)">👍 Like <span>0</span></button>
+          <button onclick="sharePost()">↗ Share</button>
+        </div>
+
+        <div class="comment-box">
+          <input
+            type="text"
+            id="commentInput"
+            placeholder="Write a comment..."
+          >
+
+          <button onclick="addComment()">
+            Comment
+          </button>
+        </div>
+
+        <div class="comments" id="comments"></div>
+      </section>
+
+      <!-- SERVICES -->
+      <section class="post">
+        <h3>🌐 Our Services</h3>
+
+        <p>Internet Registration</p>
+        <p>High-Speed Bandwidth</p>
+        <p>Internet Installation</p>
+        <p>Monthly Payments</p>
+        <p>Customer Support</p>
+      </section>
+
+    </main>
+
+    <!-- RIGHT SIDEBAR -->
+    <aside class="rightbar" id="packages">
+      <h3>📡 Internet Packages</h3>
+
+      <div class="package">
+        <strong>Basic</strong><br>
+        10 Mbps — KSh 1,000/month
+      </div>
+
+      <div class="package">
+        <strong>Standard</strong><br>
+        20 Mbps — KSh 1,500/month
+      </div>
+
+      <div class="package">
+        <strong>Premium</strong><br>
+        50 Mbps — KSh 2,500/month
+      </div>
+
+      <div class="package">
+        <strong>Business</strong><br>
+        100 Mbps — Contact Azani
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer" id="contact">
+    <p><strong>Azani Internet Service Provider Information System</strong></p>
+    <p>Designed by Kelly Kipkemboi Creative</p>
+    <p>© 2026 Azani ISP</p>
+  </div>
+
+  <!-- JAVASCRIPT -->
+  <script>
+
+    function addComment() {
+      const input = document.getElementById("commentInput");
+      const comments = document.getElementById("comments");
+
+      if (input.value.trim() === "") {
+        alert("Please write a comment first.");
+        return;
+      }
+
+      const comment = document.createElement("div");
+      comment.className = "comment";
+
+      comment.textContent = "👤 " + input.value;
+
+      comments.appendChild(comment);
+
+      input.value = "";
+    }
+
+    function likePost(button) {
+      const number = button.querySelector("span");
+
+      number.textContent =
+        parseInt(number.textContent) + 1;
+    }
+
+    function sharePost() {
+      if (navigator.share) {
+        navigator.share({
+          title: "Azani Internet Service Provider",
+          text: "Check out Azani Internet Service Provider."
+        });
+      } else {
+        alert("You can share this website using your browser's share option.");
+      }
+    }
+
+    function registerUser() {
+      alert(
+        "Registration system coming next. We will connect this button to the customer registration form."
+      );
+    }
+
+    function showMessage(service) {
+      alert(service + " section selected.");
+    }
+
+  </script>
+
+</body>
+</html>
