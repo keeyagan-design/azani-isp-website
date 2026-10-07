@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://keeyagan-design.github.io/azani-isp-website/sitemap.xml
